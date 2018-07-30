@@ -77,7 +77,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://xpa.exchange/#/exchange',
+    baseUrl: '',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -127,7 +127,10 @@ exports.config = {
     //
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
-        require: ['./test/steps/basic.js'],        // <string[]> (file/dir) require files before executing features
+        require: [
+            './test/steps/Given.js',
+            './test/steps/When.js',
+        ],        // <string[]> (file/dir) require files before executing features
         backtrace: false,   // <boolean> show full backtrace for errors
         compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
         dryRun: false,      // <boolean> invoke formatters without executing steps
@@ -140,7 +143,7 @@ exports.config = {
         strict: false,      // <boolean> fail if there are any undefined or pending steps
         tags: [],           // <string[]> (expression) only execute the features or scenarios with tags matching the expression
         timeout: 20000,     // <number> timeout for step definitions
-        ignoreUndefinedDefinitions: false, // <boolean> Enable this config to treat undefined definitions as warnings.
+        ignoreUndefinedDefinitions: true, // <boolean> Enable this config to treat undefined definitions as warnings.
     },
     
     //
